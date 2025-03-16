@@ -1,6 +1,6 @@
 package eng3.pattern;
 
-public class Veiculo {
+public class Veiculo extends Subject {
     private Movimento movimento;
 
     public void setMovimento(Movimento movimento) {
@@ -10,8 +10,9 @@ public class Veiculo {
     public void realizarMovimento() {
         if (movimento != null) {
             movimento.mover();
+            notifyObservers("Movimento realizado: " + movimento.getClass().getSimpleName());
         } else {
-            System.out.println("Nenhum movimento definido.");
+            notifyObservers("Nenhum movimento definido.");
         }
     }
 }
